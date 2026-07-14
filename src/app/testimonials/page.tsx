@@ -32,12 +32,14 @@ export default async function Testimonials() {
         <p>Stories from homeowners, investors and diaspora clients who chose a more assured route to property ownership.</p>
       </section>
       
-      {testimonials.map((t: any, index: number) => (
-        <section key={index} className="story" style={{ background: index % 2 === 1 ? '#f4f0e8' : 'transparent' }}>
-          <blockquote>“{t.quote}”</blockquote>
-          <cite>— {t.name}{t.location ? `, ${t.location}` : ''}</cite>
-        </section>
-      ))}
+      <section className="stories-grid">
+        {testimonials.map((t: any, index: number) => (
+          <div key={index} className="story-card">
+            <blockquote>“{t.quote}”</blockquote>
+            <cite>— {t.name}{t.location ? `, ${t.location}` : ''}</cite>
+          </div>
+        ))}
+      </section>
     </main>
   )
 }

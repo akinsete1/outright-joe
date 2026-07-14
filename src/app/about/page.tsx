@@ -16,6 +16,13 @@ export default async function About() {
         <div>
           <p className="eyebrow">Our story</p>
           <h2 dangerouslySetInnerHTML={{ __html: aboutData?.storyHeading || 'Real estate, without the uncertainty.' }} />
+          
+          <div className="portrait" style={{ marginTop: '50px', position: 'relative', width: '100%', maxWidth: '400px', aspectRatio: '3/4', borderRadius: '16px', overflow: 'hidden' }}>
+            <img src="/ceo.jpg" alt="Outright Joe CEO" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <div className="portrait-label" style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'white', padding: '15px 20px', fontSize: '13px', fontWeight: 'bold', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+              Integrity is our<br />starting point.
+            </div>
+          </div>
         </div>
         <div className="copy">
           {aboutData?.storyParagraphs ? (
