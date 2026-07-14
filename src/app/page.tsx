@@ -111,7 +111,7 @@ export default function Home() {
 
       <section id="about" className="about section-pad">
         <div className="portrait">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=85" alt="Real estate advisor" />
+          <img src="/ceo.jpg" alt="Outright Joe CEO" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div className="portrait-label">Integrity is our<br />starting point.</div>
         </div>
         <div className="about-copy">
