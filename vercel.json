@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/about.html", "destination": "/api/page?file=about.html" },
+    { "source": "/properties.html", "destination": "/api/page?file=properties.html" },
+    { "source": "/investments.html", "destination": "/api/page?file=investments.html" },
+    { "source": "/verification.html", "destination": "/api/page?file=verification.html" },
+    { "source": "/blog.html", "destination": "/api/page?file=blog.html" },
+    { "source": "/testimonials.html", "destination": "/api/page?file=testimonials.html" },
+    { "source": "/contact.html", "destination": "/api/page?file=contact.html" }
+  ],
+  "headers": [
+    { "source": "/(.*).html", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] },
+    { "source": "/api/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] }
+  ]
+}

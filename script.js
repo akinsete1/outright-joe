@@ -1,0 +1,3 @@
+const menu=document.querySelector('.menu');const nav=document.querySelector('nav');
+menu?.addEventListener('click',()=>{nav.classList.toggle('open');});
+document.querySelector('form')?.addEventListener('submit',async e=>{e.preventDefault();const form=e.currentTarget;const b=form.querySelector('button');const fields=Object.fromEntries(new FormData(form).entries());b.disabled=true;b.textContent='Sending…';try{const res=await fetch('/api/enquiries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...fields,source:location.pathname})});if(!res.ok)throw new Error();b.textContent='Enquiry received ✓';form.reset()}catch{b.textContent='Unable to send — please try again';b.disabled=false}});
