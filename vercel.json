@@ -1,6 +1,14 @@
 {
   "version": 2,
+  "functions": {
+    "api/assets.js": { "includeFiles": ["styles.css", "pages.css", "script.js"] },
+    "api/page.js": { "includeFiles": ["*.html"] },
+    "api/[...route].js": { "includeFiles": ["data/*.json"] }
+  },
   "rewrites": [
+    { "source": "/styles.css", "destination": "/api/assets?file=styles.css" },
+    { "source": "/pages.css", "destination": "/api/assets?file=pages.css" },
+    { "source": "/script.js", "destination": "/api/assets?file=script.js" },
     { "source": "/about.html", "destination": "/api/page?file=about.html" },
     { "source": "/properties.html", "destination": "/api/page?file=properties.html" },
     { "source": "/investments.html", "destination": "/api/page?file=investments.html" },
