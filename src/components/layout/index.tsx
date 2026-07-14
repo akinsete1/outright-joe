@@ -43,29 +43,46 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer>
-      <Link className="brand" href="/">
-        <span className="brand-mark">OJ</span>
-        <span>
-          OUTRIGHT<br />
-          <b>JOE</b>
-        </span>
-      </Link>
-      <p>Helping Nigerians home & abroad buy verified properties in Lagos.</p>
-      <p style={{ marginTop: '10px', fontSize: '13px', lineHeight: '1.5', maxWidth: '300px' }}>
-        DIAMOND AVENUE, PENINSULA GARDEN ESTATE, KM 45, LEKKI EPE EXPRESSWAY
-        <br />
-        <a href="mailto:hello@outrightjoerealestate.com" style={{ textDecoration: 'underline', color: 'inherit' }}>hello@outrightjoerealestate.com</a>
-      </p>
-      <div className="footer-links">
-        <Link href="/properties">Properties</Link>
-        <Link href="/verification">Verification</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
+    <footer className="site-footer">
+      <div className="footer-grid">
+        <div className="footer-brand-col">
+          <Link className="brand" href="/">
+            <span className="brand-mark">OJ</span>
+            <span>
+              OUTRIGHT<br />
+              <b>JOE</b>
+            </span>
+          </Link>
+          <p className="footer-tagline">Helping Nigerians at home & abroad buy verified properties in Lagos, Nigeria.</p>
+        </div>
+        
+        <div className="footer-links-col">
+          <h4>Company</h4>
+          <Link href="/about">About Us</Link>
+          <Link href="/properties">Properties</Link>
+          <Link href="/investments">Investments</Link>
+          <Link href="/verification">Verification</Link>
+          <Link href="/testimonials">Stories</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+
+        <div className="footer-contact-col">
+          <h4>Contact Us</h4>
+          <p>
+            DIAMOND AVENUE, PENINSULA GARDEN ESTATE,<br/>KM 45, LEKKI EPE EXPRESSWAY
+          </p>
+          <a href="mailto:hello@outrightjoerealestate.com">hello@outrightjoerealestate.com</a>
+          <a href="https://wa.me/2348163230242">+234 816 323 0242</a>
+        </div>
       </div>
+
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Outright Joe Real Estate Company Limited.</span>
-        <span>Instagram · YouTube · LinkedIn</span>
+        <div className="footer-socials">
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+          <a href="#">LinkedIn</a>
+        </div>
       </div>
     </footer>
   )

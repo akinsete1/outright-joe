@@ -131,10 +131,17 @@ textarea { resize: vertical; height: 75px; }
 input::placeholder, textarea::placeholder { color: #b6c0ba; }
 .contact form .button { margin-top: 5px; }
 
-footer { background: #142a22; color: #f3f0e8; padding: 60px 8.5vw 24px; display: grid; grid-template-columns: 260px 1fr 1fr; gap: 50px; }
-footer>p { margin: 0; max-width: 260px; color: #c6d0c8; font-size: 13px; }
-.footer-links { display: flex; justify-content: flex-end; gap: 22px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: .05em; }
-.footer-bottom { grid-column: 1/-1; border-top: 1px solid rgba(255,255,255,.2); padding-top: 20px; display: flex; justify-content: space-between; color: #b5c1b9; font: 9px 'DM Mono', monospace; letter-spacing: .07em; text-transform: uppercase; }
+.site-footer { background: #142a22; color: #f3f0e8; padding: 80px 8.5vw 30px; font-family: inherit; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+.footer-brand-col p.footer-tagline { margin-top: 24px; font-size: 14px; color: #c6d0c8; max-width: 320px; line-height: 1.6; }
+.footer-links-col, .footer-contact-col { display: flex; flex-direction: column; gap: 16px; }
+.footer-links-col h4, .footer-contact-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 8px; }
+.footer-links-col a, .footer-contact-col a, .footer-contact-col p { font-size: 14px; color: #b5c1b9; text-decoration: none; transition: color 0.2s ease; line-height: 1.6; margin: 0; }
+.footer-links-col a:hover, .footer-contact-col a:hover { color: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #88998d; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; flex-wrap: wrap; gap: 20px; }
+.footer-socials { display: flex; gap: 24px; }
+.footer-socials a { color: #88998d; text-decoration: none; transition: color 0.2s ease; }
+.footer-socials a:hover { color: #fff; }
 .whatsapp { position: fixed; bottom: 22px; right: 25px; z-index: 5; border-radius: 30px; padding: 11px 16px; background: #25d366; color: #10291c; display: flex; gap: 8px; align-items: center; font-weight: 800; font-size: 11px; box-shadow: 0 4px 20px rgba(0,0,0,.18); }
 .whatsapp:first-letter { font-size: 18px; }
 
@@ -200,10 +207,9 @@ footer>p { margin: 0; max-width: 260px; color: #c6d0c8; font-size: 13px; }
   .contact form { grid-column: 1; grid-row: auto; }
   .form-row { grid-template-columns: 1fr; }
   .testimonial { padding: 90px 8vw; }
-  footer { padding: 50px 7vw 22px; grid-template-columns: 1fr; gap: 25px; }
-  .footer-links { justify-content: flex-start; flex-wrap: wrap; }
-  .footer-bottom { display: block; line-height: 2; }
-  .footer-bottom span { display: block; }
+  .site-footer { padding: 60px 7vw 30px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 45px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 15px; }
   .whatsapp span { display: none; }
   .whatsapp { right: 15px; bottom: 20px; width: 60px; height: 60px; padding: 0; justify-content: center; border-radius: 50%; box-shadow: 0 8px 25px rgba(37,211,102,.4); }
   .whatsapp svg { width: 34px !important; height: 34px !important; }

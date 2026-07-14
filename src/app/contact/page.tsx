@@ -74,6 +74,18 @@ export default function Contact() {
           <strong style={{ fontSize: '15px' }}>DIAMOND AVENUE, PENINSULA GARDEN ESTATE,<br/>KM 45, LEKKI EPE EXPRESSWAY</strong>
         </div>
       </section>
+
+      <section className="map-container" style={{ margin: '0 7vw 80px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
+        <iframe 
+          src="https://www.google.com/maps?q=DIAMOND+AVENUE,+PENINSULA+GARDEN+ESTATE,+KM+45,+LEKKI+EPE+EXPRESSWAY&output=embed" 
+          width="100%" 
+          height="450" 
+          style={{ border: 0, display: 'block' }} 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
     </main>
   )
 }
