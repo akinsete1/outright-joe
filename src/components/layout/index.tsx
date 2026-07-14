@@ -1,5 +1,6 @@
+'use client'
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 
 export function Topline() {
   return (
@@ -11,6 +12,8 @@ export function Topline() {
 }
 
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Outright Joe home">
@@ -20,10 +23,10 @@ export function Header() {
           <b>JOE</b>
         </span>
       </Link>
-      <button className="menu" aria-label="Toggle menu">
-        Menu <i />
+      <button className="menu" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? 'Close' : 'Menu'} <i />
       </button>
-      <nav>
+      <nav className={menuOpen ? 'open' : ''} onClick={() => setMenuOpen(false)}>
         <Link href="/about">About</Link>
         <Link href="/properties">Properties</Link>
         <Link href="/investments">Investments</Link>
@@ -49,6 +52,11 @@ export function Footer() {
         </span>
       </Link>
       <p>Helping Nigerians home & abroad buy verified properties in Lagos.</p>
+      <p style={{ marginTop: '10px', fontSize: '13px', lineHeight: '1.5', maxWidth: '300px' }}>
+        DIAMOND AVENUE, PENINSULA GARDEN ESTATE, KM 45, LEKKI EPE EXPRESSWAY
+        <br />
+        <a href="mailto:hello@outrightjoerealestate.com" style={{ textDecoration: 'underline', color: 'inherit' }}>hello@outrightjoerealestate.com</a>
+      </p>
       <div className="footer-links">
         <Link href="/properties">Properties</Link>
         <Link href="/verification">Verification</Link>

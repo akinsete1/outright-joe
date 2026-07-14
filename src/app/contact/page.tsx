@@ -63,15 +63,15 @@ export default function Contact() {
       <section className="contact-options">
         <div>
           <p className="eyebrow">WhatsApp</p>
-          <strong>Chat with an advisor</strong>
+          <strong><a href="https://wa.me/2348163230242" style={{ color: 'inherit', textDecoration: 'none' }}>+234 816 323 0242</a></strong>
         </div>
         <div>
           <p className="eyebrow">Email</p>
-          <strong>hello@outrightjoe.com</strong>
+          <strong><a href="mailto:hello@outrightjoerealestate.com" style={{ color: 'inherit', textDecoration: 'none' }}>hello@outrightjoerealestate.com</a></strong>
         </div>
         <div>
           <p className="eyebrow">Office</p>
-          <strong>Lagos, Nigeria</strong>
+          <strong style={{ fontSize: '15px' }}>DIAMOND AVENUE, PENINSULA GARDEN ESTATE,<br/>KM 45, LEKKI EPE EXPRESSWAY</strong>
         </div>
       </section>
     </main>

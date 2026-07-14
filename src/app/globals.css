@@ -205,7 +205,10 @@ footer>p { margin: 0; max-width: 260px; color: #c6d0c8; font-size: 13px; }
   .footer-bottom { display: block; line-height: 2; }
   .footer-bottom span { display: block; }
   .whatsapp span { display: none; }
-  .whatsapp { right: 15px; width: 45px; height: 45px; padding: 0; justify-content: center; border-radius: 50%; }
+  .whatsapp { right: 15px; bottom: 20px; width: 60px; height: 60px; padding: 0; justify-content: center; border-radius: 50%; box-shadow: 0 8px 25px rgba(37,211,102,.4); }
+  .whatsapp svg { width: 34px !important; height: 34px !important; }
+  .brand { font-size: 14px; }
+  .brand-mark { width: 40px; height: 40px; font-size: 16px; }
 
   .page-hero, .page-content, .contact-page { padding-left: 7vw; padding-right: 7vw; }
   .two-column, .cards, .contact-options { grid-template-columns: 1fr; gap: 24px; }
