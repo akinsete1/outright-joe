@@ -1,0 +1,8 @@
+{
+  "name": "outright-joe-real-estate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website and content API for Outright Joe Real Estate Company Limited",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js", "vercel-build": "node -e \"console.log('Static site and serverless API ready')\"" },
+  "engines": { "node": ">=18" }
+}

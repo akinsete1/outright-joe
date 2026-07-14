@@ -1,35 +1,36 @@
-# Outright Joe Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Run locally with Node 18 or newer:
+## Getting Started
+
+First, run the development server:
 
 ```bash
-npm start
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-The website is served at `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Content API
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Public reads:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- `GET /api/properties`
-- `GET /api/posts`
-- `GET /api/testimonials`
-- `GET /api/investments`
+## Learn More
 
-Create, edit, or remove editorial records with `POST`, `PUT /api/<collection>/<id>`, and `DELETE /api/<collection>/<id>`. Set `ADMIN_API_KEY` before deployment and pass it as the `x-admin-key` request header. Records are stored in `data/*.json` and can also be edited directly for simple content updates.
+To learn more about Next.js, take a look at the following resources:
 
-`POST /api/enquiries` is intentionally public so the contact form can work. Enquiries are saved to `data/enquiries.json`.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## SEO
-
-`robots.txt`, `sitemap.xml`, descriptive page titles, a home-page description, canonical URL, and Open Graph metadata are included. Replace `https://outrightjoe.com` in the sitemap and canonical tag with the production domain if it differs.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
-1. Push this folder to GitHub and import the repository in Vercel, or run `vercel` from this folder.
-2. Create a **Vercel KV** database in the project storage settings.
-3. Add `KV_REST_API_URL`, `KV_REST_API_TOKEN`, and a long random `ADMIN_API_KEY` in **Project Settings → Environment Variables**. The variable names are listed in [.env.example](.env.example).
-4. Deploy. The serverless backend will be available at `https://your-domain.vercel.app/api/properties` and the other API paths listed above.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-The first API read uses the sample records under `data/`; the first create, update, or delete stores that collection permanently in Vercel KV. Vercel KV is required because serverless function files are read-only and non-persistent.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

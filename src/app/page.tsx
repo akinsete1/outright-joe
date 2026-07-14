@@ -1,0 +1,199 @@
+import Link from 'next/link'
+import { submitEnquiry } from './actions'
+
+export default function Home() {
+  return (
+    <main id="home">
+      <section className="hero">
+        <div className="hero-image"></div>
+        <div className="hero-shade"></div>
+        <div className="hero-copy">
+          <p className="eyebrow light">Lagos real estate, made certain</p>
+          <h1>
+            Invest in a<br />
+            <em>place of your own.</em>
+          </h1>
+          <p className="hero-text">
+            Helping Nigerians home and abroad buy verified land, luxury apartments, and high-return opportunities across Lagos.
+          </p>
+          <div className="hero-actions">
+            <Link className="button button-gold" href="/properties">
+              Explore properties <span>↗</span>
+            </Link>
+            <Link className="text-link light" href="/contact">
+              Book a free consultation <span>→</span>
+            </Link>
+          </div>
+        </div>
+        <div className="hero-note">
+          <span className="pulse"></span>
+          <span>Every property is carefully vetted<br />before it reaches you.</span>
+        </div>
+        <div className="hero-index">01 <span>/</span> 05</div>
+      </section>
+
+      <section className="proof section-pad">
+        <div className="proof-heading">
+          <p className="eyebrow">Why clients choose us</p>
+          <h2>Property should feel<br />like a <em>sure thing.</em></h2>
+        </div>
+        <div className="proof-copy">
+          <p>For over nine years, we have made the path to property ownership clearer, safer and more rewarding for hundreds of clients around the world.</p>
+          <Link className="text-link" href="/about">Meet Outright Joe <span>→</span></Link>
+        </div>
+        <div className="stats">
+          <div><strong>9<span>+</span></strong><p>Years of experience</p></div>
+          <div><strong>100<span>%</span></strong><p>Verified opportunities</p></div>
+          <div><strong>500<span>+</span></strong><p>Client milestones</p></div>
+          <div><strong>24<span>/7</span></strong><p>Diaspora support</p></div>
+        </div>
+      </section>
+
+      <section id="properties" className="properties section-pad">
+        <div className="section-intro">
+          <div>
+            <p className="eyebrow">Featured opportunities</p>
+            <h2>Made to hold<br /><em>their value.</em></h2>
+          </div>
+          <Link className="text-link" href="/contact">View all properties <span>→</span></Link>
+        </div>
+        <div className="property-grid">
+          <article className="property property-large">
+            <Link href="/properties/apartment" style={{ display: 'block', height: '100%', position: 'relative' }}>
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85" alt="Contemporary luxury residence" />
+              <span className="tag">Apartments</span>
+              <div className="property-info">
+                <p>Lekki Phase 1</p>
+                <h3>Form meets<br />investment.</h3>
+                <span style={{ fontSize: '10px', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '.06em' }}>Discover residence <span style={{ color: 'var(--gold)', fontSize: '16px', marginLeft: '8px' }}>↗</span></span>
+              </div>
+            </Link>
+          </article>
+          <article className="property">
+            <Link href="/properties/land" style={{ display: 'block', height: '100%', position: 'relative' }}>
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Premium home exterior" />
+              <span className="tag">Land</span>
+              <div className="property-info">
+                <p>Ibeju Lekki</p>
+                <h3>Future-facing<br />land value.</h3>
+                <span style={{ fontSize: '10px', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '.06em' }}>View opportunity <span style={{ color: 'var(--gold)', fontSize: '16px', marginLeft: '8px' }}>↗</span></span>
+              </div>
+            </Link>
+          </article>
+          <article className="property">
+            <Link href="/properties/residence" style={{ display: 'block', height: '100%', position: 'relative' }}>
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85" alt="Luxury apartment interior" />
+              <span className="tag">Investment</span>
+              <div className="property-info">
+                <p>Ikoyi</p>
+                <h3>A rare address,<br />beautifully considered.</h3>
+                <span style={{ fontSize: '10px', textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: '.06em' }}>Explore investment <span style={{ color: 'var(--gold)', fontSize: '16px', marginLeft: '8px' }}>↗</span></span>
+              </div>
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section id="verification" className="verification">
+        <div className="verification-image"></div>
+        <div className="verification-content">
+          <p className="eyebrow light">Property verification centre</p>
+          <h2>Know what<br />you are buying.</h2>
+          <p>Before you make a commitment, our due diligence team helps confirm ownership, title, documentation and legal status.</p>
+          <ul>
+            <li>Ownership & title verification</li>
+            <li>Survey plan & documentation checks</li>
+            <li>Property background reports</li>
+          </ul>
+          <Link className="button button-gold" href="/contact">Verify a property <span>↗</span></Link>
+        </div>
+      </section>
+
+      <section id="about" className="about section-pad">
+        <div className="portrait">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=85" alt="Real estate advisor" />
+          <div className="portrait-label">Integrity is our<br />starting point.</div>
+        </div>
+        <div className="about-copy">
+          <p className="eyebrow">A better way to buy</p>
+          <h2>Built on <em>trust.</em><br />Driven by results.</h2>
+          <p>Outright Joe is an award-winning real estate consultant dedicated to helping Nigerians at home and abroad acquire verified properties across Lagos.</p>
+          <p>We combine clear guidance, diligent documentation and local expertise—so that your investment creates lasting wealth and genuine peace of mind.</p>
+          <Link className="text-link" href="/contact">More about our approach <span>→</span></Link>
+        </div>
+      </section>
+
+      <section id="insights" className="insights section-pad">
+        <div className="section-intro">
+          <div>
+            <p className="eyebrow">Lagos property insights</p>
+            <h2>Invest with<br /><em>perspective.</em></h2>
+          </div>
+          <Link className="text-link" href="/blog">Read all insights <span>→</span></Link>
+        </div>
+        <div className="articles">
+          <Link href="/contact">
+            <span>01 — Market intelligence</span>
+            <h3>Why Ibeju Lekki continues to attract smart investors</h3>
+            <b>→</b>
+          </Link>
+          <Link href="/contact">
+            <span>02 — Infrastructure</span>
+            <h3>Lagos Coastal Highway: what it means for property investors</h3>
+            <b>→</b>
+          </Link>
+          <Link href="/contact">
+            <span>03 — Diaspora guide</span>
+            <h3>How Nigerians abroad can avoid real estate scams</h3>
+            <b>→</b>
+          </Link>
+        </div>
+      </section>
+
+      <section className="testimonial">
+        <p className="quote-mark">“</p>
+        <blockquote>I bought my first investment property in Lagos while living in the UK. The whole process felt transparent, professional and stress-free.</blockquote>
+        <p className="client">— TOLU A., DIASPORA INVESTOR</p>
+        <div className="testimonial-controls">
+          <button>←</button>
+          <span>01 / 03</span>
+          <button>→</button>
+        </div>
+      </section>
+
+      <section id="contact" className="contact">
+        <p className="eyebrow light">Your next move starts here</p>
+        <h2>Let's find the<br /><em>right opportunity.</em></h2>
+        <p>Tell us a little about what you are looking for. A member of our advisory team will be in touch.</p>
+        <form action={async (formData) => { "use server"; await submitEnquiry(formData); }}>
+          <div className="form-row">
+            <label>Full name
+              <input name="fullName" required placeholder="Your full name" type="text" />
+            </label>
+            <label>Email address
+              <input name="email" required placeholder="you@email.com" type="email" />
+            </label>
+          </div>
+          <div className="form-row">
+            <label>Property interest
+              <select name="interest">
+                <option>Select an option</option>
+                <option>Land</option>
+                <option>Apartment</option>
+                <option>Investment project</option>
+                <option>Property verification</option>
+              </select>
+            </label>
+            <label>Phone number
+              <input name="phone" placeholder="+234" type="tel" />
+            </label>
+          </div>
+          <label>How can we help?
+            <textarea name="message" placeholder="Tell us about your property goals"></textarea>
+          </label>
+          <button className="button button-gold" type="submit">Send enquiry <span>↗</span></button>
+        </form>
+      </section>
+    </main>
+  )
+}
