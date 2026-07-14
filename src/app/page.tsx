@@ -5,7 +5,7 @@ import { TestimonialSlider } from '../components/home/TestimonialSlider'
 
 export default async function Home() {
   const sanityTestimonials = await client.fetch(`*[_type == "testimonial" && published == true]{name, location, quote}`)
-  
+  const homeData = await client.fetch(`*[_type == "homePage"][0]`)
   const fallbackTestimonials = [
     {
       name: "TOLU A.",
@@ -33,12 +33,9 @@ export default async function Home() {
         <div className="hero-shade"></div>
         <div className="hero-copy">
           <p className="eyebrow light">Lagos real estate, made certain</p>
-          <h1>
-            Invest in a<br />
-            <em>place of your own.</em>
-          </h1>
+          <h1 dangerouslySetInnerHTML={{ __html: homeData?.heroHeadline || 'Invest in a<br /><em>place of your own.</em>' }} />
           <p className="hero-text">
-            Helping Nigerians home and abroad buy verified land, luxury apartments, and high-return opportunities across Lagos.
+            {homeData?.heroSubtext || 'Helping Nigerians home and abroad buy verified land, luxury apartments, and high-return opportunities across Lagos.'}
           </p>
           <div className="hero-actions">
             <Link className="button button-gold" href="/properties">
@@ -59,10 +56,10 @@ export default async function Home() {
       <section className="proof section-pad">
         <div className="proof-heading">
           <p className="eyebrow">Why clients choose us</p>
-          <h2>Property should feel<br />like a <em>sure thing.</em></h2>
+          <h2 dangerouslySetInnerHTML={{ __html: homeData?.proofHeading || 'Property should feel<br />like a <em>sure thing.</em>' }} />
         </div>
         <div className="proof-copy">
-          <p>For over nine years, we have made the path to property ownership clearer, safer and more rewarding for hundreds of clients around the world.</p>
+          <p>{homeData?.proofText || 'For over nine years, we have made the path to property ownership clearer, safer and more rewarding for hundreds of clients around the world.'}</p>
           <Link className="text-link" href="/about">Meet Outright Joe <span>→</span></Link>
         </div>
         <div className="stats">
@@ -140,9 +137,15 @@ export default async function Home() {
         </div>
         <div className="about-copy">
           <p className="eyebrow">A better way to buy</p>
-          <h2>Built on <em>trust.</em><br />Driven by results.</h2>
-          <p>Outright Joe is an award-winning real estate consultant dedicated to helping Nigerians at home and abroad acquire verified properties across Lagos.</p>
-          <p>We combine clear guidance, diligent documentation and local expertise—so that your investment creates lasting wealth and genuine peace of mind.</p>
+          <h2 dangerouslySetInnerHTML={{ __html: homeData?.aboutHeading || 'Built on <em>trust.</em><br />Driven by results.' }} />
+          {homeData?.aboutText ? (
+            <p style={{ whiteSpace: 'pre-line' }}>{homeData.aboutText}</p>
+          ) : (
+            <>
+              <p>Outright Joe is an award-winning real estate consultant dedicated to helping Nigerians at home and abroad acquire verified properties across Lagos.</p>
+              <p>We combine clear guidance, diligent documentation and local expertise—so that your investment creates lasting wealth and genuine peace of mind.</p>
+            </>
+          )}
           <Link className="text-link" href="/contact">More about our approach <span>→</span></Link>
         </div>
       </section>

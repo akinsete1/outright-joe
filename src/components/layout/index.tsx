@@ -41,7 +41,14 @@ export function Header() {
   )
 }
 
-export function Footer() {
+export function Footer({ settings }: { settings?: any }) {
+  const address = settings?.companyAddress || 'DIAMOND AVENUE, PENINSULA GARDEN ESTATE,\nKM 45, LEKKI EPE EXPRESSWAY'
+  const email = settings?.contactEmail || 'hello@outrightjoerealestate.com'
+  const whatsapp = settings?.whatsappNumber || '+2348163230242'
+  const insta = settings?.instagramUrl || '#'
+  const yt = settings?.youtubeUrl || '#'
+  const li = settings?.linkedinUrl || '#'
+
   return (
     <footer className="site-footer">
       <div className="footer-grid">
@@ -68,20 +75,18 @@ export function Footer() {
 
         <div className="footer-contact-col">
           <h4>Contact Us</h4>
-          <p>
-            DIAMOND AVENUE, PENINSULA GARDEN ESTATE,<br/>KM 45, LEKKI EPE EXPRESSWAY
-          </p>
-          <a href="mailto:hello@outrightjoerealestate.com">hello@outrightjoerealestate.com</a>
-          <a href="https://wa.me/2348163230242">+234 816 323 0242</a>
+          <p style={{ whiteSpace: 'pre-line' }}>{address}</p>
+          <a href={`mailto:${email}`}>{email}</a>
+          <a href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`}>{whatsapp}</a>
         </div>
       </div>
 
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Outright Joe Real Estate Company Limited.</span>
         <div className="footer-socials">
-          <a href="#">Instagram</a>
-          <a href="#">YouTube</a>
-          <a href="#">LinkedIn</a>
+          <a href={insta}>Instagram</a>
+          <a href={yt}>YouTube</a>
+          <a href={li}>LinkedIn</a>
         </div>
       </div>
     </footer>
