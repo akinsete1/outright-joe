@@ -1,7 +1,31 @@
 import Link from 'next/link'
 import { submitEnquiry } from './actions'
+import { client } from '../sanity/lib/client'
+import { TestimonialSlider } from '../components/home/TestimonialSlider'
 
-export default function Home() {
+export default async function Home() {
+  const sanityTestimonials = await client.fetch(`*[_type == "testimonial" && published == true]{name, location, quote}`)
+  
+  const fallbackTestimonials = [
+    {
+      name: "TOLU A.",
+      location: "DIASPORA INVESTOR",
+      quote: "I bought my first investment property in Lagos while living in the UK. The whole process felt transparent, professional and stress-free."
+    },
+    {
+      name: "CHIDI O.",
+      location: "BUSINESS OWNER",
+      quote: "Outright Joe took the guesswork out of buying land in Ibeju-Lekki. Their verification process gave me 100% peace of mind."
+    },
+    {
+      name: "AMINA Y.",
+      location: "REAL ESTATE INVESTOR",
+      quote: "From the initial consultation to handing over the documents, their team was incredibly responsive and honest."
+    }
+  ]
+
+  const testimonials = sanityTestimonials && sanityTestimonials.length > 0 ? sanityTestimonials : fallbackTestimonials
+
   return (
     <main id="home">
       <section className="hero">
@@ -150,16 +174,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="testimonial">
-        <p className="quote-mark">“</p>
-        <blockquote>I bought my first investment property in Lagos while living in the UK. The whole process felt transparent, professional and stress-free.</blockquote>
-        <p className="client">— TOLU A., DIASPORA INVESTOR</p>
-        <div className="testimonial-controls">
-          <button>←</button>
-          <span>01 / 03</span>
-          <button>→</button>
-        </div>
-      </section>
+      <TestimonialSlider testimonials={testimonials} />
 
       <section id="contact" className="contact">
         <p className="eyebrow light">Your next move starts here</p>
