@@ -224,3 +224,12 @@ input::placeholder, textarea::placeholder { color: #b6c0ba; }
   .contact-page .form-row { grid-template-columns: 1fr; }
   .cards article { min-height: 0; }
 }
+
+/* Video Grid */
+.video-grid { padding: 40px 8.5vw 100px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
+.video-card { background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition: transform 0.3s ease; }
+.video-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+.video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+.video-card .video-info { padding: 24px; }
+.video-card h3 { font: 600 18px/1.4 var(--sans); margin: 0 0 8px; color: #1e392f; }
+.video-card p { font: 400 13px/1.5 var(--sans); color: #7a827d; margin: 0; }

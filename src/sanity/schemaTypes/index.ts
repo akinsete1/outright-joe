@@ -6,6 +6,7 @@ import { testimonialType } from './testimonialType'
 import { siteSettings } from './siteSettings'
 import { homePage } from './homePage'
 import { aboutPage } from './aboutPage'
+import { youtubeVideo } from './youtubeVideo'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -15,6 +16,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     testimonialType,
     siteSettings,
     homePage,
-    aboutPage
+    aboutPage,
+    youtubeVideo
   ],
 }

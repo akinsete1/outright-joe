@@ -32,6 +32,7 @@ export function Header() {
         <Link href="/investments">Investments</Link>
         <Link href="/verification">Verification</Link>
         <Link href="/blog">Blog</Link>
+        <Link href="/videos">Videos</Link>
         <Link href="/testimonials">Stories</Link>
       </nav>
       <Link className="button button-dark header-cta" href="/contact">
