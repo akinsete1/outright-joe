@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: 'Helping Nigerians home and abroad acquire verified properties in Lagos.',
 }
 
+export const revalidate = 60 // Revalidate cache every 60 seconds
+
 export default async function RootLayout({
   children,
 }: Readonly<{
