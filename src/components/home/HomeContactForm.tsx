@@ -10,7 +10,8 @@ export default function HomeContactForm() {
     e.preventDefault()
     setStatus('submitting')
     
-    const formData = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
     if (!accessKey) {
       setStatus('error')
@@ -31,7 +32,7 @@ export default function HomeContactForm() {
       
       if (result.success) {
         setStatus('success')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setStatus('error')
         setErrorMessage(result.message || 'Failed to send message')
