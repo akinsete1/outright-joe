@@ -15,21 +15,37 @@ export async function submitEnquiry(formData: FormData) {
       return { success: false, error: 'Name and email are required.' }
     }
 
-    const enquiry = {
-      id: crypto.randomUUID(),
-      createdAt: new Date().toISOString(),
-      name,
-      email,
-      interest,
-      phone,
-      message,
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY
+    if (!accessKey) {
+      console.error('Missing WEB3FORMS_ACCESS_KEY environment variable.')
+      return { success: false, error: 'Server configuration error.' }
     }
 
-    // In a real production app you would save this to a database or send an email.
-    // For now, we simulate saving it. 
-    console.log('Received Enquiry:', enquiry)
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name,
+        email,
+        phone,
+        interest,
+        message,
+        subject: `New Enquiry from ${name} - Outright Joe`,
+      }),
+    })
 
-    return { success: true }
+    const result = await response.json()
+
+    if (result.success) {
+      return { success: true }
+    } else {
+      console.error('Web3Forms Error:', result)
+      return { success: false, error: result.message || 'Failed to submit form' }
+    }
   } catch (error) {
     console.error('Error submitting enquiry:', error)
     return { success: false, error: 'Internal server error' }
