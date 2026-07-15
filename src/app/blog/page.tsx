@@ -4,7 +4,7 @@ import { client } from '@/sanity/lib/client'
 export const revalidate = 60 // Revalidate cache every 60 seconds
 
 export default async function Blog() {
-  const sanityPosts = await client.fetch(`*[_type == "post" && published == true] | order(publishedAt desc) { title, excerpt, category, "slug": _id }`)
+  const sanityPosts = await client.fetch(`*[_type == "post" && published == true] | order(publishedAt desc) { title, excerpt, category, "slug": coalesce(slug.current, _id) }`)
 
   const fallbackPosts = [
     { title: "Why Ibeju Lekki continues to attract smart investors", category: "Market intelligence", excerpt: "How critical infrastructure is changing the investment landscape.", slug: "1" },

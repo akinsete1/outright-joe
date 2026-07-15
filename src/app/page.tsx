@@ -8,7 +8,7 @@ export const revalidate = 60 // Revalidate cache every 60 seconds
 export default async function Home() {
   const sanityTestimonials = await client.fetch(`*[_type == "testimonial" && published == true]{name, location, quote}`)
   const homeData = await client.fetch(`*[_type == "homePage"][0]`)
-  const sanityPosts = await client.fetch(`*[_type == "post" && published == true] | order(publishedAt desc)[0...3] { title, category, "slug": _id }`)
+  const sanityPosts = await client.fetch(`*[_type == "post" && published == true] | order(publishedAt desc)[0...3] { title, category, "slug": coalesce(slug.current, _id) }`)
   const fallbackTestimonials = [
     {
       name: "TOLU A.",
