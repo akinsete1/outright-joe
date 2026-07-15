@@ -1,6 +1,20 @@
 import Link from 'next/link'
+import { client } from '@/sanity/lib/client'
 
-export default function Blog() {
+export const revalidate = 60 // Revalidate cache every 60 seconds
+
+export default async function Blog() {
+  const sanityPosts = await client.fetch(`*[_type == "post" && published == true] | order(publishedAt desc) { title, excerpt, category, "slug": _id }`)
+
+  const fallbackPosts = [
+    { title: "Why Ibeju Lekki continues to attract smart investors", category: "Market intelligence", excerpt: "How critical infrastructure is changing the investment landscape.", slug: "1" },
+    { title: "Lagos Coastal Highway: what it means for investors", category: "Infrastructure", excerpt: "A look at the property value impact of new connectivity.", slug: "2" },
+    { title: "How Nigerians abroad can avoid real estate scams", category: "Diaspora guide", excerpt: "Practical steps for safely buying from anywhere in the world.", slug: "3" },
+    { title: "Best places to buy land in Lagos", category: "Market report", excerpt: "The locations poised for residential and commercial growth.", slug: "4" }
+  ]
+
+  const posts = sanityPosts && sanityPosts.length > 0 ? sanityPosts : fallbackPosts
+
   return (
     <main>
       <section className="page-hero">
@@ -10,41 +24,16 @@ export default function Blog() {
       </section>
 
       <section className="page-content">
-        <div className="list-row">
-          <span>Market intelligence</span>
-          <div>
-            <h3>Why Ibeju Lekki continues to attract smart investors</h3>
-            <p>How critical infrastructure is changing the investment landscape.</p>
+        {posts.map((post: any) => (
+          <div key={post.slug} className="list-row">
+            <span>{post.category || 'Article'}</span>
+            <div>
+              <h3>{post.title}</h3>
+              {post.excerpt && <p>{post.excerpt}</p>}
+            </div>
+            <b>→</b>
           </div>
-          <b>→</b>
-        </div>
-        
-        <div className="list-row">
-          <span>Infrastructure</span>
-          <div>
-            <h3>Lagos Coastal Highway: what it means for investors</h3>
-            <p>A look at the property value impact of new connectivity.</p>
-          </div>
-          <b>→</b>
-        </div>
-        
-        <div className="list-row">
-          <span>Diaspora guide</span>
-          <div>
-            <h3>How Nigerians abroad can avoid real estate scams</h3>
-            <p>Practical steps for safely buying from anywhere in the world.</p>
-          </div>
-          <b>→</b>
-        </div>
-        
-        <div className="list-row">
-          <span>Market report</span>
-          <div>
-            <h3>Best places to buy land in Lagos</h3>
-            <p>The locations poised for residential and commercial growth.</p>
-          </div>
-          <b>→</b>
-        </div>
+        ))}
       </section>
     </main>
   )

@@ -8,6 +8,7 @@ export const revalidate = 60 // Revalidate cache every 60 seconds
 export default async function Home() {
   const sanityTestimonials = await client.fetch(`*[_type == "testimonial" && published == true]{name, location, quote}`)
   const homeData = await client.fetch(`*[_type == "homePage"][0]`)
+  const sanityPosts = await client.fetch(`*[_type == "post" && published == true] | order(publishedAt desc)[0...3] { title, category, "slug": _id }`)
   const fallbackTestimonials = [
     {
       name: "TOLU A.",
@@ -161,21 +162,33 @@ export default async function Home() {
           <Link className="text-link" href="/blog">Read all insights <span>→</span></Link>
         </div>
         <div className="articles">
-          <Link href="/contact">
-            <span>01 — Market intelligence</span>
-            <h3>Why Ibeju Lekki continues to attract smart investors</h3>
-            <b>→</b>
-          </Link>
-          <Link href="/contact">
-            <span>02 — Infrastructure</span>
-            <h3>Lagos Coastal Highway: what it means for property investors</h3>
-            <b>→</b>
-          </Link>
-          <Link href="/contact">
-            <span>03 — Diaspora guide</span>
-            <h3>How Nigerians abroad can avoid real estate scams</h3>
-            <b>→</b>
-          </Link>
+          {sanityPosts && sanityPosts.length > 0 ? (
+            sanityPosts.map((post: any, index: number) => (
+              <Link key={post.slug} href="/blog">
+                <span>0{index + 1} — {post.category || 'Article'}</span>
+                <h3>{post.title}</h3>
+                <b>→</b>
+              </Link>
+            ))
+          ) : (
+            <>
+              <Link href="/blog">
+                <span>01 — Market intelligence</span>
+                <h3>Why Ibeju Lekki continues to attract smart investors</h3>
+                <b>→</b>
+              </Link>
+              <Link href="/blog">
+                <span>02 — Infrastructure</span>
+                <h3>Lagos Coastal Highway: what it means for property investors</h3>
+                <b>→</b>
+              </Link>
+              <Link href="/blog">
+                <span>03 — Diaspora guide</span>
+                <h3>How Nigerians abroad can avoid real estate scams</h3>
+                <b>→</b>
+              </Link>
+            </>
+          )}
         </div>
       </section>
 
