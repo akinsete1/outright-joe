@@ -5,13 +5,14 @@ import { notFound } from 'next/navigation'
 
 export const revalidate = 60
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
   const post = await client.fetch(`*[_type == "post" && _id == $id][0] { 
     title, 
     category, 
     publishedAt, 
     content 
-  }`, { id: params.id })
+  }`, { id: resolvedParams.id })
 
   if (!post) {
     notFound()
