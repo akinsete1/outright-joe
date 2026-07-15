@@ -46,8 +46,8 @@ export async function submitEnquiry(formData: FormData) {
       console.error('Web3Forms Error:', result)
       return { success: false, error: result.message || 'Failed to submit form' }
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error submitting enquiry:', error)
-    return { success: false, error: 'Internal server error' }
+    return { success: false, error: `Error: ${error.message || 'Unknown server error'}` }
   }
 }
