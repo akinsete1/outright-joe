@@ -26,6 +26,7 @@ export async function submitEnquiry(formData: FormData) {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        'User-Agent': 'OutrightJoe-Website/1.0',
       },
       body: JSON.stringify({
         access_key: accessKey,
@@ -38,7 +39,14 @@ export async function submitEnquiry(formData: FormData) {
       }),
     })
 
-    const result = await response.json()
+    const text = await response.text()
+    let result;
+    try {
+      result = JSON.parse(text)
+    } catch (e) {
+      console.error('Web3Forms returned non-JSON:', text)
+      return { success: false, error: `Web3Forms Error (${response.status}): ${text.substring(0, 40)}...` }
+    }
 
     if (result.success) {
       return { success: true }
