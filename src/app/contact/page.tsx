@@ -10,13 +10,38 @@ export default function Contact() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setStatus('submitting')
+    
     const formData = new FormData(e.currentTarget)
-    const result = await submitEnquiry(formData)
-    if (result.success) {
-      setStatus('success')
-    } else {
+    
+    // Append the access key (must be prefixed with NEXT_PUBLIC_ for client-side access)
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+    if (!accessKey) {
       setStatus('error')
-      setErrorMessage(result.error || 'Unable to send — please try again')
+      setErrorMessage('Missing NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in Vercel.')
+      return
+    }
+    
+    formData.append('access_key', accessKey)
+    formData.append('subject', `New Enquiry from ${formData.get('fullName')} - Outright Joe`)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        setStatus('success')
+        e.currentTarget.reset() // Clear the form
+      } else {
+        setStatus('error')
+        setErrorMessage(result.message || 'Failed to send message')
+      }
+    } catch (error: any) {
+      setStatus('error')
+      setErrorMessage(error.message || 'Network error occurred')
     }
   }
 

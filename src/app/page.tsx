@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { submitEnquiry } from './actions'
 import { client } from '../sanity/lib/client'
 import { TestimonialSlider } from '../components/home/TestimonialSlider'
+import HomeContactForm from '../components/home/HomeContactForm'
 
 export const revalidate = 60 // Revalidate cache every 60 seconds
 
@@ -198,34 +198,7 @@ export default async function Home() {
         <p className="eyebrow light">Your next move starts here</p>
         <h2>Let's find the<br /><em>right opportunity.</em></h2>
         <p>Tell us a little about what you are looking for. A member of our advisory team will be in touch.</p>
-        <form action={async (formData) => { "use server"; await submitEnquiry(formData); }}>
-          <div className="form-row">
-            <label>Full name
-              <input name="fullName" required placeholder="Your full name" type="text" />
-            </label>
-            <label>Email address
-              <input name="email" required placeholder="you@email.com" type="email" />
-            </label>
-          </div>
-          <div className="form-row">
-            <label>Property interest
-              <select name="interest">
-                <option>Select an option</option>
-                <option>Land</option>
-                <option>Apartment</option>
-                <option>Investment project</option>
-                <option>Property verification</option>
-              </select>
-            </label>
-            <label>Phone number
-              <input name="phone" placeholder="+234" type="tel" />
-            </label>
-          </div>
-          <label>How can we help?
-            <textarea name="message" placeholder="Tell us about your property goals"></textarea>
-          </label>
-          <button className="button button-gold" type="submit">Send enquiry <span>↗</span></button>
-        </form>
+        <HomeContactForm />
       </section>
     </main>
   )
