@@ -18,7 +18,7 @@ export async function submitEnquiry(formData: FormData) {
     const accessKey = process.env.WEB3FORMS_ACCESS_KEY
     if (!accessKey) {
       console.error('Missing WEB3FORMS_ACCESS_KEY environment variable.')
-      return { success: false, error: 'Server configuration error.' }
+      return { success: false, error: 'Missing Web3Forms Access Key in Vercel.' }
     }
 
     const response = await fetch('https://api.web3forms.com/submit', {

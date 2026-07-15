@@ -5,6 +5,7 @@ import { submitEnquiry } from '../actions'
 
 export default function Contact() {
   const [status, setStatus] = useState('idle') // idle, submitting, success, error
+  const [errorMessage, setErrorMessage] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -15,6 +16,7 @@ export default function Contact() {
       setStatus('success')
     } else {
       setStatus('error')
+      setErrorMessage(result.error || 'Unable to send — please try again')
     }
   }
 
@@ -55,7 +57,7 @@ export default function Contact() {
             {status === 'idle' && <>Send enquiry <span>↗</span></>}
             {status === 'submitting' && 'Sending...'}
             {status === 'success' && 'Enquiry received ✓'}
-            {status === 'error' && 'Unable to send — please try again'}
+            {status === 'error' && errorMessage}
           </button>
         </form>
       </section>
