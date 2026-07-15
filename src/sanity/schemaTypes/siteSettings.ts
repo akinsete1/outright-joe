@@ -10,17 +10,20 @@ export const siteSettings = defineType({
       title: 'Company Address',
       type: 'text',
       description: 'The physical address displayed in the footer and contact page',
+      initialValue: 'DIAMOND AVENUE, PENINSULA GARDEN ESTATE,\nKM 45, LEKKI EPE EXPRESSWAY',
     }),
     defineField({
       name: 'contactEmail',
       title: 'Contact Email',
       type: 'string',
+      initialValue: 'hello@outrightjoerealestate.com',
     }),
     defineField({
       name: 'whatsappNumber',
       title: 'WhatsApp Number',
       type: 'string',
       description: 'Format: +2348163230242',
+      initialValue: '+2348163230242',
     }),
     defineField({
       name: 'instagramUrl',

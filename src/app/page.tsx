@@ -3,6 +3,8 @@ import { submitEnquiry } from './actions'
 import { client } from '../sanity/lib/client'
 import { TestimonialSlider } from '../components/home/TestimonialSlider'
 
+export const revalidate = 60 // Revalidate cache every 60 seconds
+
 export default async function Home() {
   const sanityTestimonials = await client.fetch(`*[_type == "testimonial" && published == true]{name, location, quote}`)
   const homeData = await client.fetch(`*[_type == "homePage"][0]`)

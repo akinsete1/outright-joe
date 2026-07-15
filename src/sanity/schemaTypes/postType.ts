@@ -31,5 +31,11 @@ export const postType = defineType({
       type: 'boolean',
       initialValue: true,
     }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [{type: 'block'}],
+    }),
   ],
 })
