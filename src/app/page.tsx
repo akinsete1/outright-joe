@@ -164,7 +164,7 @@ export default async function Home() {
         <div className="articles">
           {sanityPosts && sanityPosts.length > 0 ? (
             sanityPosts.map((post: any, index: number) => (
-              <Link key={post.slug} href="/blog">
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <span>0{index + 1} — {post.category || 'Article'}</span>
                 <h3>{post.title}</h3>
                 <b>→</b>

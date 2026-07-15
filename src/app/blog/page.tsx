@@ -25,14 +25,14 @@ export default async function Blog() {
 
       <section className="page-content">
         {posts.map((post: any) => (
-          <div key={post.slug} className="list-row">
+          <Link key={post.slug} href={`/blog/${post.slug}`} className="list-row" style={{ textDecoration: 'none', color: 'inherit', display: 'grid' }}>
             <span>{post.category || 'Article'}</span>
             <div>
               <h3>{post.title}</h3>
               {post.excerpt && <p>{post.excerpt}</p>}
             </div>
             <b>→</b>
-          </div>
+          </Link>
         ))}
       </section>
     </main>
