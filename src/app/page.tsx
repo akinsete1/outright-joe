@@ -197,7 +197,6 @@ export default async function Home() {
       <section id="contact" className="contact">
         <p className="eyebrow light">Your next move starts here</p>
         <h2>Let's find the<br /><em>right opportunity.</em></h2>
-        <p>Tell us a little about what you are looking for. A member of our advisory team will be in touch.</p>
         <HomeContactForm />
       </section>
     </main>
