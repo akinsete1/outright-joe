@@ -10,7 +10,34 @@ const playfair = Playfair_Display({ subsets: ['latin'], weight: ['500', '600', '
 
 export const metadata: Metadata = {
   title: 'Outright Joe | Verified Lagos Properties',
-  description: 'Helping Nigerians home and abroad acquire verified properties in Lagos.',
+  description: 'Helping Nigerians home and abroad acquire verified properties in Lagos without the fear of being scammed.',
+  keywords: ['Lagos Real Estate', 'Buy Property in Lagos', 'Ibeju Lekki Land', 'Verified Properties Nigeria', 'Lagos Property Investments', 'Outright Joe'],
+  openGraph: {
+    title: 'Outright Joe | Verified Lagos Properties',
+    description: 'Helping Nigerians home and abroad acquire verified properties in Lagos without the fear of being scammed.',
+    url: 'https://outrightjoerealestate.com',
+    siteName: 'Outright Joe',
+    images: [
+      {
+        url: 'https://outrightjoerealestate.com/icon.png',
+        width: 800,
+        height: 800,
+      },
+    ],
+    locale: 'en_NG',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export const revalidate = 60 // Revalidate cache every 60 seconds
